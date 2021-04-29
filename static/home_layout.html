@@ -12,6 +12,14 @@
 
     <script type=text/javascript>
    
+    function relocate_home() {
+      location.href = "http://localhost:5000/";
+    }
+
+    function relocate_about() {
+      location.href = "http://localhost:5000/about/"
+    }
+
     function gen_chord() {
       
       var xmlhttp = new XMLHttpRequest();
@@ -48,8 +56,17 @@
           </a>
     
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
-            <li><a href="#" class="nav-link px-2 text-secondary">About</a></li>
+            <li><a 
+              href="#" 
+              class="nav-link px-2 text-white" 
+              onclick="relocate_home()">
+              Home
+            </a></li>
+            <li><a href="#" 
+              class="nav-link px-2 text-secondary"
+              onclick="relocate_about()">
+              About
+            </a></li>
           </ul>
     
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -65,9 +82,9 @@
     </header>
     
 
-    <div class="h-5000 d-inline-block p-3 mr-1" style="width: 100%; background-color: rgba(255, 255, 255, 0)">
-      <div class="container-fluid">
-        <div class="row">
+    <div class="h-5000 d-inline-block p-5 mr-1" style="width: 100%; background-color: rgba(255, 255, 255, 0)">
+      <div class="container-fluid pl-5 pr-5">
+        <div class="row pl-5 pr-5">
           <div class="col-sm" id="song_output">
             Your song will appear here!
           </div>
@@ -80,8 +97,9 @@
             </div>
             <div class="input-group-append">
               <button type="button" class="btn btn-warning"
-              onclick="gen_chord()"
-              >Magic</button>
+              onclick="gen_chord()">
+              Magic
+              </button>
             </div>
           </div>
         </div>

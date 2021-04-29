@@ -10,12 +10,15 @@ app.config["DEBUG"] = True
 def home():
    chord = request.data.decode()
    return chord_formatter.format(chord)
-
-
+   
 
 @app.route('/', methods=['GET'])
-def root():
+def root_home():
     return app.send_static_file('home_layout.html')
+    
+@app.route('/about/', methods=['GET'])
+def root_about():
+    return app.send_static_file('about_layout.html')
 
 
 if __name__ == "__main__":

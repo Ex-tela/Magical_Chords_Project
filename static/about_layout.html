@@ -12,31 +12,17 @@
 
     <script type=text/javascript>
    
-    function gen_chord() {
-      
-      var xmlhttp = new XMLHttpRequest();
+      function relocate_home() {
+        location.href = "http://localhost:5000/";
+      }
 
-      xmlhttp.onreadystatechange = function() {
-          if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
-            if (xmlhttp.status == 200) {
-                document.getElementById("song_output").innerHTML = xmlhttp.responseText;
-            }
-            else {
-                alert('Error, ' + xmlhttp.status);
-            }
-          }
-      };
+      function relocate_about() {
+        location.href = "http://localhost:5000/about/"
+      }
 
-      
-      xmlhttp.open("POST", "http://localhost:5000/format_chordpro/", true);
-      xmlhttp.setRequestHeader("Content-Type", "text/plain")
-      var inputHtml = document.getElementById('song_input').value;
-      xmlhttp.send(inputHtml);
-      // document.getElementById('song_output').innerHTML=document.getElementById('song_input').value;
-    }
     </script>
 
-    <title>Magical Chords</title>
+  <title>Magical Chords</title>
   </head>
   <body>
     <header class="p-3 text-white" style="background-color: rgb(50, 10, 87)">
@@ -48,8 +34,17 @@
           </a>
     
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
-            <li><a href="#" class="nav-link px-2 text-secondary">About</a></li>
+            <li><a 
+              href="#" 
+              class="nav-link px-2 text-secondary" 
+              onclick="relocate_home()">
+              Home
+            </a></li>
+            <li><a href="#" 
+              class="nav-link px-2 text-white"
+              onclick="relocate_about()">
+              About
+            </a></li>
           </ul>
     
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -65,24 +60,14 @@
     </header>
     
 
-    <div class="h-5000 d-inline-block p-3 mr-1" style="width: 100%; background-color: rgba(255, 255, 255, 0)">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm" id="song_output">
-            Your song will appear here!
+    <div class="h-5000 d-inline-block p-5" style="width: 100%; background-color: rgba(255, 255, 255, 0)">
+      <div class="container-fluid pl-5 pr-5">
+        <div class="row pl-5 pr-5">
+          <div class="col-sm">
+            About the website
           </div>
           <div class="col-sm">
-            <div class="form-group">
-              <textarea class="form-control"  placeholder="Insert chords here..." rows="18" id="song_input"></textarea>
-            </div>
-            <div>
-              <span class="me-1"></span>
-            </div>
-            <div class="input-group-append">
-              <button type="button" class="btn btn-warning"
-              onclick="gen_chord()"
-              >Magic</button>
-            </div>
+            More about the website
           </div>
         </div>
       </div>
