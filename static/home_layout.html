@@ -12,18 +12,6 @@
 
     <script type=text/javascript>
    
-    function relocate_home() {
-      location.href = "http://localhost:5000/";
-    }
-
-    function relocate_about() {
-      location.href = "http://localhost:5000/about/"
-    }
-
-    function relocate_library() {
-        location.href = "http://localhost:5000/library/"
-      }
-
     function gen_chord() {
       
       var xmlhttp = new XMLHttpRequest();
@@ -61,19 +49,18 @@
     
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li><a 
-              href="#" 
+              href="http://localhost:5000/" 
               class="nav-link px-2 text-white" 
               onclick="relocate_home()">
               Home
             </a></li>
-            <li><a href="#" 
+            <li><a href="http://localhost:5000/about/" 
               class="nav-link px-2 text-secondary"
               onclick="relocate_about()">
               About
             </a></li>
-            <li><a href="#" 
-              class="nav-link px-2 text-secondary"
-              onclick="relocate_library()">
+            <li><a href="http://localhost:5000/library/" 
+              class="nav-link px-2 text-secondary">
               Library
             </a></li>
           </ul>
