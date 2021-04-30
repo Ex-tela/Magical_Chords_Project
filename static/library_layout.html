@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script type=text/javascript>
+   
+      function relocate_home() {
+        location.href = "http://localhost:5000/";
+      }
+
+      function relocate_about() {
+        location.href = "http://localhost:5000/about/"
+      }
+
+      function relocate_library() {
+        location.href = "http://localhost:5000/library/"
+      }
+
+    </script>
+
+  <title>Magical Chords</title>
+  </head>
+  <body>
+    <header class="p-3 text-white" style="background-color: rgb(50, 10, 87)">
+      <!-- <img src="..." alt="Magical Chords logo" class=""> -->
+      <div class="container-fluid">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-center">
+          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+    
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a 
+              href="#" 
+              class="nav-link px-2 text-secondary" 
+              onclick="relocate_home()">
+              Home
+            </a></li>
+            <li><a href="#" 
+              class="nav-link px-2 text-secondary"
+              onclick="relocate_about()">
+              About
+            </a></li>
+            <li><a href="#" 
+              class="nav-link px-2 text-white"
+              onclick="relocate_library()">
+              Library
+            </a></li>
+          </ul>
+    
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+            <input type="search" class="form-control form-control" style="background-color: rgba(38, 15, 59, 0.459)" placeholder="Search...">
+          </form>
+    
+          <div class="text-end">
+            <button type="button" class="btn btn-outline-light me-2">Login</button>
+            <button type="button" class="btn btn-warning">Sign-up</button>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+
+    <div class="h-5000 d-inline-block p-5" style="width: 100%; background-color: rgba(255, 255, 255, 0)">
+      <div class="container-fluid pl-5 pr-5">
+        <div class="row pl-5 pr-5">
+          <div class="col-sm">
+            About the website
+          </div>
+          <div class="col-sm">
+            More about the website
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
