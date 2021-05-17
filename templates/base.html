@@ -18,12 +18,12 @@
   </head>
   <body style="background-color: rgb(214, 139, 0)">
     <header class="p-3 text-white" style="background-color: rgb(63, 0, 45)">
-      <!-- <img src="..." alt="Magical Chords logo" class=""> -->
-      <div class="container-fluid">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-center">
-          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-          </a>
+        <!-- <img class="rounded text-left" style="width: 250px;" src="/web/LOGO_Magical_chords.png"> -->
+        <div class="container-fluid">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-center">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            </a>
     
 
         {% set navigation_bar = [
@@ -33,33 +33,19 @@
         ] -%}
         {% set active_page = active_page|default('home') -%}
         
-        <ul id="navigation" class="nav-link px-2 text-secondary">
+        <ul id="navigation" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         {% for href, id, caption in navigation_bar %}
-        <li {% if id == active_page %} class="nav-link px-2 text-white"{% endif
-          %}><a href="{{ href|e }}">{{ caption|e }}</a></li>
+        <li>
+            <a href="{{ href|e }}"
+            {% if id == active_page %} class="nav-link px-2 text-white"
+            {% else %} class="nav-link px-2 text-secondary"
+            {% endif%}>
+                {{ caption|e }}
+            </a></li>
         {% endfor %}
         </ul>
 
-
-
-          <!-- <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"> -->
-            <!-- <li><a  -->
-              <!-- href="http://localhost:5000/"  -->
-              <!-- class="nav-link px-2 {% block home_class %} text-secondary {% endblock %}"> -->
-              <!-- Home -->
-            <!-- </a></li> -->
-            <!-- <li><a href="http://localhost:5000/library/"  -->
-              <!-- class="nav-link px-2 {% block library_class %} text-secondary {% endblock %}"> -->
-              <!-- Library -->
-            <!-- </a></li> -->
-            <!-- <li><a href="http://localhost:5000/about/"  -->
-              <!-- class="nav-link px-2 {% block about_class %} text-secondary {% endblock %}"> -->
-              <!-- About -->
-            <!-- </a></li> -->
-          <!-- </ul> -->
-
-
-    
+        
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
             <input type="search" class="form-control form-control" style="background-color: rgba(87, 0, 62, 0.363)" placeholder="Search...">
           </form>
