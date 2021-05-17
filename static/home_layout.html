@@ -38,8 +38,8 @@
 
     <title>Magical Chords</title>
   </head>
-  <body>
-    <header class="p-3 text-white" style="background-color: rgb(50, 10, 87)">
+  <body style="background-color: rgb(214, 139, 0)">
+    <header class="p-3 text-white" style="background-color: rgb(63, 0, 45)">
       <!-- <img src="..." alt="Magical Chords logo" class=""> -->
       <div class="container-fluid">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-center">
@@ -48,12 +48,23 @@
           </a>
     
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
-            <li><a href="#" class="nav-link px-2 text-secondary">About</a></li>
+            <li><a 
+              href="http://localhost:5000/" 
+              class="nav-link px-2 text-white">
+              Home
+            </a></li>
+            <li><a href="http://localhost:5000/library/" 
+              class="nav-link px-2 text-secondary">
+              Library
+            </a></li>
+            <li><a href="http://localhost:5000/about/" 
+              class="nav-link px-2 text-secondary">
+              About
+            </a></li>
           </ul>
     
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <input type="search" class="form-control form-control" style="background-color: rgba(38, 15, 59, 0.459)" placeholder="Search...">
+            <input type="search" class="form-control form-control" style="background-color: rgba(18, 1, 29, 0.26)" placeholder="Search...">
           </form>
     
           <div class="text-end">
@@ -63,25 +74,31 @@
         </div>
       </div>
     </header>
-    
 
-    <div class="h-5000 d-inline-block p-3 mr-1" style="width: 100%; background-color: rgba(255, 255, 255, 0)">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm" id="song_output">
+    <div class="h-5000 d-inline-block p-5 mr-1" style="width: 100%; background-color: rgba(255, 255, 255, 0)">
+      <div class="container-fluid pl-5 pr-5">
+        <div class="row pl-5 pr-5">
+          <div class="col-sm" id="song_output" style="color: rgb(63, 0, 45);"><h5>
             Your song will appear here!
-          </div>
+          </h5></div>
           <div class="col-sm">
             <div class="form-group">
-              <textarea class="form-control"  placeholder="Insert chords here..." rows="18" id="song_input"></textarea>
+              <textarea class="form-control border-0"
+              placeholder="Insert chords here..."
+              rows="18"
+              id="song_input"
+              style="color: white; background-color: rgb(63, 0, 45)"></textarea>
             </div>
             <div>
               <span class="me-1"></span>
             </div>
-            <div class="input-group-append">
-              <button type="button" class="btn btn-warning"
-              onclick="gen_chord()"
-              >Magic</button>
+            <div class="input-group-append d-flex justify-content-center">
+              <button type="button"
+              class="btn p-2"
+              style="width: 50%; color:rgb(214, 139, 0); background-color: rgb(63, 0, 45);"
+              onclick="gen_chord()">
+              Magic
+              </button>
             </div>
           </div>
         </div>
