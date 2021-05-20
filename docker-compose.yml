@@ -1,14 +1,6 @@
-  
 version: '3'
-services:
-  cassandra:
-    image: "cassandra:3.11.2"
-    ports:
-    - "7000:7000"
-    - "9042:9042"
-  tests:
-    build: .
-    links:
-      - cassandra
+services: 
+  server:
+    build: . 
     ports:
     - "5000:5000"
