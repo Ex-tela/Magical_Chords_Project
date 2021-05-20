@@ -1,7 +1,7 @@
 from flask import render_template
 import flask
 from flask import request
-import chord_formatter
+from magical_chords import chord_formatter
 
 app = flask.Flask(__name__, static_url_path='/web/')
 app.config["DEBUG"] = True
