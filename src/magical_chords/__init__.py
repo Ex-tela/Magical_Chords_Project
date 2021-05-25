@@ -61,6 +61,17 @@ def root_library():
     songs = Chords.query.all()
     return render_template('library_layout.html', songs=songs)
 
+@app.route('/search/', methods=['GET'])
+def root_search():
+    search_text = request.args.get('search_text')
+    songs = Chords.query.filter(Chords.author.ilike(f"%{search_text}%"))
+    results_message = f"Your search '{search_text}' returned {songs.count()} result(s)."
+    return render_template('library_layout.html', songs=songs, results_message=results_message, search_text=search_text)
+
+@app.route('/song/', method=['GET'])
+def root_song():
+    return render_template('song_layout.html')
+
 
 if __name__ == "__main__":
     app.run()

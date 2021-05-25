@@ -36,6 +36,8 @@
       xmlhttp.send(inputHtml);
       // document.getElementById('song_output').innerHTML=document.getElementById('song_input').value;
     }
+
+        
     </script>
 
   <title>Magical Chords</title>
@@ -72,9 +74,14 @@
         </ul>
 
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control form-control" style="background-color: rgba(87, 0, 62, 0.363)"
-            placeholder="Search...">
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="/search/" method="GET">
+          <input type="search"
+          class="form-control form-control"
+          style="background-color: rgba(87, 0, 62, 0.363)"
+          placeholder="Search..."
+          id="search_text" name="search_text" value="{{ search_text }}">
+            <!-- <button type="submit" class="btn bg-dark"><span class="fa fa-search">
+            </span>Q</button> -->
         </form>
 
         <div class="text-end">
