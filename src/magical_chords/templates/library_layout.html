@@ -2,121 +2,27 @@
 {% set active_page = "library" %}
 {% block content %}
 
+
 <div class="h-5000 d-inline-block p-5" style="width: 100%; background-color: rgba(255, 255, 255, 0)">
   <div class="container-fluid pl-5 pr-5">
+    {% for song in songs %}
     <div class="row pl-5 pr-5">
-
       <div class="col-sm">
         <div class="card border-0 bg-transparent">
           <div class="card-body rounded" style="background-color: rgb(63, 0, 45)">
-            <a href="http://localhost:5000/library/"
-            class="text-white-50">
-            <h5 class="card-title" style="color:  rgb(255, 196, 0);">Je Suis Déjà Parti - Nouvelle Vague</h5>
-            <p class="card-text" style="color: rgba(255, 255, 255, 0.7);">
-              Je suis déjà parti &nbsp;/&nbsp;
-              Fais comme si tu &nbsp;/&nbsp;
-              Ne m'avais jamais connu &nbsp;/&nbsp;
-              Tout est foutu &nbsp;//&nbsp;
-              Je suis déjà parti...
-            </p>
+            <a href="http://localhost:5000/library/" class="text-white-50">
+              <h5 class="card-title" style="color:  rgb(255, 196, 0);">{{ song.title }} - {{ song.author }}</h5>
+              <p class="card-text" style="color: rgba(255, 255, 255, 0.7);">
+                {{ song.song_content }}
+              </p>
             </a>
           </div>
         </div>
-        
         <p class="px-2"></p>
-
-        <div class="card border-0 bg-transparent">
-          <div class="card-body rounded" style="background-color:rgba(63, 0, 45)">
-            <a href="http://localhost:5000/library/"
-            class="text-white-50">
-            <h5 class="card-title" style="color:  rgb(255, 196, 0);">Junge - Die Ärzte</h5>
-            <p class="card-text" style="color: rgba(255, 255, 255, 0.7);">
-              Americas Westen, die weite Prärie &nbsp;/&nbsp;
-              Und mittendrin ein kleines Haus &nbsp;/&nbsp;
-              Und darin eine besorgte Mutter &nbsp;//&nbsp;
-              Junge &nbsp;/&nbsp;
-              Warum hast du nichts gelernt?...
-            </p>
-            </a>
-          </div>
-        </div>
-
-        <p class="px-2"></p>
-
-        <div class="card border-0 bg-transparent">
-          <div class="card-body rounded" style="background-color:rgba(63, 0, 45)">
-          <a href="http://localhost:5000/library/"
-          class="text-white-50">
-          <h5 class="card-title" style="color:  rgb(255, 196, 0);">Somebody to Love - Jefferson Airplane</h5>
-          <p class="card-text" style="color: rgba(255, 255, 255, 0.7);">
-              When the truth is found to be lies &nbsp;/&nbsp;
-              And all the joy within you dies &nbsp;/&nbsp;
-              Don't you want somebody to love &nbsp;/&nbsp;
-              Don't you need somebody to love &nbsp;/&nbsp;
-              Wouldn't you love somebody to love...
-            </p>
-          </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm">
-
-        <div class="card border-0 bg-transparent">
-          <div class="card-body rounded" style="background-color:rgba(63, 0, 45);">
-          <a href="http://localhost:5000/library/"
-            class="text-white-50">
-            <h5 class="card-title" style="color:  rgb(255, 196, 0);">Lentes - Supercombo feat. Negra Li</h5>
-            <p class="card-text" style="color: rgba(255, 255, 255, 0.7);">
-              Se você quer parar, estagnar &nbsp;/&nbsp;
-              Quer interromper &nbsp;/&nbsp;
-              Deixa eu carrego &nbsp;//&nbsp;
-              Na garupa da minha bicicleta &nbsp;//&nbsp;
-              Se a porta fechar...
-            </p>
-          </a>
-          </div>
-        </div>
-
-        <p class="px-2"></p>
-        
-        <div class="card border-0 bg-transparent">
-          <div class="card-body rounded" style="background-color:rgba(63, 0, 45);">
-          <a href="http://localhost:5000/library/" 
-          class="text-white-50">
-            <h5 class="card-title" style="color:  rgb(255, 196, 0);">Mala Vida - Mano Negra</h5>
-            <p class="card-text" style="color: rgba(255, 255, 255, 0.7);">
-              Tú me estás dando mala vida &nbsp;/&nbsp;
-              Yo pronto me voy a escapar &nbsp;/&nbsp;
-              Gitana mía por lo menos date cuenta &nbsp;/&nbsp;
-              Gitana mía, por favor, no me dejas ni respirar &nbsp;/&nbsp;
-              Tú me estás dando mala vida...
-            </p>
-          </a>
-          </div>
-        </div>
-        
-        <p class="px-2"></p>
-
-        <div class="card border-0 bg-transparent">
-          <div class="card-body rounded" style="background-color:rgba(63, 0, 45);">
-            <a href="http://localhost:5000/library/"
-            class="text-white-50">
-            <h5 class="card-title" style="color:  rgb(255, 196, 0);">Zitti E Buoni - Måneskin</h5>
-            <p class="card-text" style="color: rgba(255, 255, 255, 0.7);">
-              Loro non sanno di che parlo &nbsp;/&nbsp;
-              Voi siete sporchi, fra', di fango &nbsp;/&nbsp;
-              Giallo di siga fra le dita &nbsp;/&nbsp;
-              Io con la siga camminando &nbsp;/&nbsp;
-              Scusami, ma ci credo tanto...
-            </p>
-          </a>
-        </div>
-
-      </div>
-
       </div>
     </div>
+    {% endfor %}
+
   </div>
 </div>
 
