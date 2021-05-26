@@ -1,3 +1,4 @@
+from sqlalchemy import or_
 import click
 from flask import render_template
 import flask
@@ -58,19 +59,28 @@ def root_about(name=None):
 
 @app.route('/library/', methods=['GET'])
 def root_library():
-    songs = Chords.query.all()
+    songs = Chords.query.order_by(Chords.author.asc(), Chords.title.asc()).all()
     return render_template('library_layout.html', songs=songs)
 
 @app.route('/search/', methods=['GET'])
 def root_search():
     search_text = request.args.get('search_text')
-    songs = Chords.query.filter(Chords.author.ilike(f"%{search_text}%"))
+    songs = Chords.query.filter(
+        or_(
+            Chords.author.ilike(f"%{search_text}%"),
+            Chords.title.ilike(f"%{search_text}%"),
+            Chords.song_content.ilike(f"%{search_text}%")
+            )
+    ).order_by(Chords.author.asc(), Chords.title.asc())
     results_message = f"Your search '{search_text}' returned {songs.count()} result(s)."
     return render_template('library_layout.html', songs=songs, results_message=results_message, search_text=search_text)
 
-@app.route('/song/', method=['GET'])
+@app.route('/song/', methods=['GET'])
 def root_song():
-    return render_template('song_layout.html')
+    song_id = request.args.get('song_id')
+    song = Chords.query.filter_by(id=song_id).first()
+    formatted_song = Chords(author=song.author, title=song.title, song_content=chord_formatter.format(song.song_content))
+    return render_template('song_layout.html', song=formatted_song)
 
 
 if __name__ == "__main__":

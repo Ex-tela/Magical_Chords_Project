@@ -2,19 +2,34 @@
 {% set active_page = "library" %}
 {% block content %}
 
-<div><p><h5>
-  {{ results_message }}
-</h5></p></div>
-
 
 <div class="h-5000 d-inline-block p-5" style="width: 100%; background-color: rgba(255, 255, 255, 0)">
   <div class="container-fluid pl-5 pr-5">
+
+    <div>
+      <p>
+      <h5>
+        {{ results_message }}
+      </h5>
+      </p>
+    </div>
+
+    {% set ns = namespace(last_author = None) %}
     {% for song in songs %}
+
+    {% if ns.last_author != song.author %}
+    <div class="row pl-5 pr-5">
+      <div class="col-sm"> {{ song.author }}
+      </div>
+    </div>
+    {% endif %}
+    {% set ns.last_author = song.author %}
+
     <div class="row pl-5 pr-5">
       <div class="col-sm">
         <div class="card border-0 bg-transparent">
           <div class="card-body rounded" style="background-color: rgb(63, 0, 45)">
-            <a href="http://localhost:5000/library/" class="text-white-50">
+            <a href="http://localhost:5000/song/?song_id={{ song.id }}" class="text-white-50">
               <h5 class="card-title" style="color:  rgb(255, 196, 0);">{{ song.title }} - {{ song.author }}</h5>
               <p class="card-text" style="color: rgba(255, 255, 255, 0.7);">
                 {{ song.song_content }}
