@@ -18,9 +18,9 @@
     {% for song in songs %}
 
     {% if ns.last_author != song.author %}
-    <div class="row pl-5 pr-5">
-      <div class="col-sm"> {{ song.author }}
-      </div>
+    <div class="row pl-3 pr-3">
+      <div class="col-sm" style="color: rgb(63, 0, 45);"><b><h5> {{ song.author }}
+      </b></h5></div>
     </div>
     {% endif %}
     {% set ns.last_author = song.author %}

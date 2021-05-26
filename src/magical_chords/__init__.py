@@ -83,5 +83,17 @@ def root_song():
     return render_template('song_layout.html', song=formatted_song)
 
 
+@app.route('/artists/', methods=['GET'])
+def root_artists():
+    songs = Chords.query.order_by(Chords.author.asc(), Chords.title.asc()).distinct(Chords.author)
+    return render_template('artists_layout.html', songs=songs)
+
+@app.route('/artists_songs/', methods=['GET'])
+def root_artists_songs():
+    artist = request.args.get('artist')
+    songs = Chords.query.filter_by(author=artist).all()
+    return render_template('library_layout.html', songs=songs)
+
+
 if __name__ == "__main__":
     app.run()

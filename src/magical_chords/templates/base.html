@@ -57,6 +57,7 @@
         {% set navigation_bar = [
         ('/', 'home', 'Home'),
         ('/library/', 'library', 'Library'),
+        ('/artists/', 'artists', 'Artists'),
         ('/about/', 'about', 'About')
         ] -%}
         {% set active_page = active_page|default('home') -%}
@@ -73,10 +74,10 @@
         </ul>
 
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="/search/" method="GET">
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 w-25" action="/search/" method="GET">
           <input type="search"
           class="form-control form-control"
-          style="background-color: rgba(87, 0, 62, 0.363)"
+          style="color: white; background-color: rgba(87, 0, 62, 0.363)"
           placeholder="Search..."
           id="search_text" name="search_text" value="{{ search_text }}">
             <!-- <button type="submit" class="btn bg-dark"><span class="fa fa-search">

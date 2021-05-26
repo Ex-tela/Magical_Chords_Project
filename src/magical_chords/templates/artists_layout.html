@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% set active_page = "artists" %}
+{% block content %}
+
+<div class="h-5000 d-inline-block p-5" style="width: 100%; background-color: rgba(255, 255, 255, 0)">
+    <div class="container-fluid pl-5 pr-5">
+
+        {% for song in songs %}
+
+        <div class="row pl-5 pr-5">
+            <div class="col-sm">
+
+                <div class="card border-0 bg-transparent">
+                    <div class="card-body rounded" style="background-color: rgb(63, 0, 45)">
+                        <a href="http://localhost:5000/artists_songs/?artist={{ song.author }}" class="text-white-50">
+                            <h5 class="card-text" style="color:  rgb(255, 196, 0);">{{ song.author }}</h5>
+                        </a>
+                    </div>
+                </div>
+                <p class="px-2"></p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
