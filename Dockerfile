@@ -1,5 +1,7 @@
-FROM python:3.6-alpine
+FROM python:3.9.5-slim-buster
 
+ENV CHORDS_ENV=docker
+RUN apt-get update && apt-get install -y libpq-dev gcc
 COPY requirements.txt /req/
 RUN pip install -r /req/requirements.txt 
 
