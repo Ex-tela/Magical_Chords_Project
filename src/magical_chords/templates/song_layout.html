@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% set active_page = None %}
+{% block content %}
+
+
+<div class="h-5000 d-inline-block p-5" style="width: 100%; background-color: rgba(255, 255, 255, 0)">
+    <div class="container-fluid pl-5 pr-5">
+        <div class="pl-5 pr-5">
+            <p>
+            <h5>{{ song.title }}</h5>
+            </p>
+            <p>
+            <h6>{{ song.author }}</h6>
+            </p>
+            <p>&nbsp</p>
+            <p>{{ song.song_content |safe}}</p>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

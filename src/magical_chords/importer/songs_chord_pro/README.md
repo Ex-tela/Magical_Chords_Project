@@ -1,0 +1,1 @@
+These files have been taken from http://getsome.org/guitar/olga/chordpro/ and they are being used here as they seem to be of public domain
