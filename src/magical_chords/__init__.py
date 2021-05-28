@@ -5,6 +5,7 @@ from magical_chords import chord_formatter
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_
 from magical_chords.configs import config
+from magical_chords.importer import song_importer
 
 
 app = flask.Flask(__name__, static_url_path='/web/')
@@ -27,15 +28,12 @@ def init_db():
     db.create_all()
 
     num_songs = Chords.query.count()
-    if num_songs == 0:
-        song1 = Chords(author='The Beatles', title="We Can Work It Out",
-                       song_content="We Can[D] Work It [G]Out")
-        song2 = Chords(author='Jefferson Airplane', title="Somebody to Love",
-                       song_content="Don't you[D] need [G]somebody to lo[C]ve?")
+    if num_songs == 0:          
+        for author, title, song_content in song_importer.chopro_gen:
+            song = Chords(author=author.replace('.', ' '), title=title, song_content=song_content)
+            db.session.add(song)
+            db.session.commit()
 
-        db.session.add(song1)
-        db.session.add(song2)
-        db.session.commit()
 
 
 app.cli.add_command(init_db)
