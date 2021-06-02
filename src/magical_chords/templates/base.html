@@ -44,8 +44,8 @@
   <link rel="icon" href="/web/LOGO_Magical_chords.png">
 </head>
 
-<body style="background-color: rgb(201, 195, 170)">
-  <header class="p-3 text-white" style="background-color: rgb(63, 0, 45)">
+<body style="background-color: rgb(224, 204, 181)">
+  <header class="p-3 text-white" style="background-color: rgb(235, 214, 255)">
     <div class="container-fluid">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-center">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -59,6 +59,7 @@
         ('/', 'home', 'Home'),
         ('/library/', 'library', 'Library'),
         ('/artists/', 'artists', 'Artists'),
+        ('/insert/', 'insert', 'Insert')
         ('/about/', 'about', 'About')
         ] -%}
         {% set active_page = active_page|default('home') -%}
@@ -76,12 +77,10 @@
 
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 w-25" action="/search/" method="GET">
-          <input type="search"
-          class="form-control form-control"
-          style="color: white; background-color: rgba(87, 0, 62, 0.363)"
-          placeholder="Search..."
-          id="search_text" name="search_text" value="{{ search_text }}">
-            <!-- <button type="submit" class="btn bg-dark"><span class="fa fa-search">
+          <input type="search" class="form-control form-control"
+            style="color: white; background-color: rgba(47, 6, 87, 0.404)" placeholder="Search..." id="search_text"
+            name="search_text" value="{{ search_text }}">
+          <!-- <button type="submit" class="btn bg-dark"><span class="fa fa-search">
             </span>Q</button> -->
         </form>
 
