@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% set active_page = "insert" %}
+{% block content %}
+
+    <div class="h-5000 d-inline-block p-5 mr-1" style="width: 100%; background-color: rgba(255, 255, 255, 0)">
+      <div class="container-fluid pl-5 pr-5">
+        <div class="row pl-5 pr-5">
+          <div class="col-sm" id="song_output" style="color: rgb(87, 0, 88);"><h5>
+            Your song will appear here!
+          </h5></div>
+          <div class="col-sm">
+            <div class="form-group">
+              <textarea class="form-control border-0"
+              placeholder="Insert chords here..."
+              rows="15"
+              id="song_input"
+              style="color: white; background-color: rgb(87, 0, 88)"></textarea>
+            </div>
+            <div>
+              <span class="me-1"></span>
+            </div>
+            <div class="input-group-append d-flex justify-content-center">
+              <button type="button"
+              class="btn p-2"
+              style="width: 50%; color:rgb(255, 255, 255); background-color: rgb(87, 0, 88);"
+              onclick="gen_chord()"><b>
+              Magic
+            </b></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}

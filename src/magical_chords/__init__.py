@@ -48,16 +48,12 @@ def format_chordpro():
 
 
 # templates rendering
+# home page
 @app.route('/')
 def root_home(name=None):
     return render_template('home_layout.html')
 
-
-@app.route('/about/')
-def root_about(name=None):
-    return render_template('about_layout.html')
-
-
+# library & search
 @app.route('/library/', methods=['GET'])
 def root_library():
     songs = Chords.query.order_by(
@@ -87,7 +83,7 @@ def root_song():
                             song_content=chord_formatter.format(song.song_content))
     return render_template('song_layout.html', song=formatted_song)
 
-
+# artists page
 @app.route('/artists/', methods=['GET'])
 def root_artists():
     songs = Chords.query.order_by(
@@ -100,6 +96,15 @@ def root_artists_songs():
     artist = request.args.get('artist')
     songs = Chords.query.filter_by(author=artist).all()
     return render_template('library_layout.html', songs=songs)
+
+# insert & about pages
+@app.route('/insert/')
+def root_insert(name=None):
+    return render_template('insert_layout.html')
+
+@app.route('/about/')
+def root_about(name=None):
+    return render_template('about_layout.html')
 
 
 if __name__ == "__main__":

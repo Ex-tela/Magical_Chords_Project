@@ -44,21 +44,23 @@
   <link rel="icon" href="/web/LOGO_Magical_chords.png">
 </head>
 
-<body style="background-color: rgb(214, 139, 0)">
-  <header class="p-3 text-white" style="background-color: rgb(63, 0, 45)">
+<body style="background-color: rgb(255, 255, 255)">
+  <header class="p-3 text-dark w-100"
+    style="background-color: rgba(180, 180, 180, 0.808); position: fixed; top: 0; overflow: hidden; float: inline-start;">
     <div class="container-fluid">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-center">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
           <svg class="bi me-2" width="40" height="32">
             <use xlink:href="#bootstrap"></use>
           </svg>
         </a>
-        <img class="rounded text-left" style="width: 125px;" src="/web/LOGO_Magical_chords.png">
+        <img class="rounded text-left pr-5" style="width: 125px;" src="/web/LOGO_Magical_chords.png">
 
         {% set navigation_bar = [
         ('/', 'home', 'Home'),
         ('/library/', 'library', 'Library'),
         ('/artists/', 'artists', 'Artists'),
+        ('/insert/', 'insert', 'Insert'),
         ('/about/', 'about', 'About')
         ] -%}
         {% set active_page = active_page|default('home') -%}
@@ -66,7 +68,7 @@
         <ul id="navigation" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           {% for href, id, caption in navigation_bar %}
           <li>
-            <a href="{{ href|e }}" {% if id==active_page %} class="nav-link px-2 text-white" {% else %}
+            <a href="{{ href|e }}" {% if id==active_page %} class="nav-link px-2 text-dark" {% else %}
               class="nav-link px-2 text-secondary" {% endif%}>
               {{ caption|e }}
             </a>
@@ -76,24 +78,25 @@
 
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 w-25" action="/search/" method="GET">
-          <input type="search"
-          class="form-control form-control"
-          style="color: white; background-color: rgba(87, 0, 62, 0.363)"
-          placeholder="Search..."
-          id="search_text" name="search_text" value="{{ search_text }}">
-            <!-- <button type="submit" class="btn bg-dark"><span class="fa fa-search">
+          <input type="search" class="form-control form-control"
+            style="color: rgb(0, 0, 0); background-color: rgba(255, 255, 255, 0.726)" placeholder="Search..."
+            id="search_text" name="search_text" value="{{ search_text }}">
+          <!-- <button type="submit" class="btn bg-dark"><span class="fa fa-search">
             </span>Q</button> -->
         </form>
 
         <div class="text-end">
           <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
+          <button type="button" class="btn btn-light">Sign-up</button>
         </div>
       </div>
     </div>
   </header>
 
-  {% block content %}{% endblock %}
+  <div style="margin-top: 2cm;">
+    {% block content %}
+  </div>
+  {% endblock %}
 
 
   <!-- Optional JavaScript -->

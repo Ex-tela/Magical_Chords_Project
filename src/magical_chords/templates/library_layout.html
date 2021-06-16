@@ -19,7 +19,7 @@
 
     {% if ns.last_author != song.author %}
     <div class="row pl-3 pr-3">
-      <div class="col-sm" style="color: rgb(63, 0, 45);"><b><h5> {{ song.author }}
+      <div class="col-sm" style="color: rgb(21, 0, 41);"><b><h5> {{ song.author }}
       </b></h5></div>
     </div>
     {% endif %}
@@ -28,11 +28,11 @@
     <div class="row pl-5 pr-5">
       <div class="col-sm">
         <div class="card border-0 bg-transparent">
-          <div class="card-body rounded" style="background-color: rgb(63, 0, 45)">
+          <div class="card-body rounded" style="background-color: rgb(38,75,44)">
             <a href="/song/?song_id={{ song.id }}" class="text-white-50">
-              <h5 class="card-title" style="color:  rgb(255, 196, 0);">{{ song.title }} - {{ song.author }}</h5>
+              <h5 class="card-title" style="color:  rgb(255, 255, 255);">{{ song.title }} - {{ song.author }}</h5>
               <p class="card-text" style="color: rgba(255, 255, 255, 0.7);">
-                {{ song.song_content[:-100] }}
+                {{ song.song_content }}
               </p>
             </a>
           </div>
