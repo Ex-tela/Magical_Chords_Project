@@ -1,2 +1,10 @@
 # Chord_Pro
-The Chord Pro project has as its objectives: try and build a virtual platform where anybody can contribute with chords/tabs and use them as well. The experience with the website should be good both visually and practically.
+I created the Magical Chords project aiming to learn and practice my programming skills. Currently, the website counts with a PostgreSQL database, which is accessible through the search engine I created using Flask and SQLAlchemy.
+
+Main technologies used in the project:
+
+- HTML, Javascript and Twitter bootstrap, through flask templates
+- Unit tests using pytest running in docker
+- Site is open source, available on github at https://github.com/Ex-tela/Magical_Chords_Project
+- ChordPro format parser and html chord generator written in python
+- PostgreSQL as database
