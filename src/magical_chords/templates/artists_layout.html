@@ -2,26 +2,87 @@
 {% set active_page = "artists" %}
 {% block content %}
 
+{% set len_songs = songs.count() %}
+{% set range_songs = len_songs/3 + len_songs % 3 + 1 %}
+
 <div class="h-5000 d-inline-block p-5" style="width: 100%; background-color: rgba(255, 255, 255, 0)">
     <div class="container-fluid pl-5 pr-5">
 
-        {% for song in songs %}
+        <div class="row">
+            {% set alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
+            {% for letter in alphabet %}
+            <div class="col-sm-26">
+                <button type="button" class="btn p-2 w-100" style="background-color: rgb(14, 48, 56); color: white;">{{ letter
+                }}</button><div class="p-2"></div>
+            </div>
+            {% endfor %}
+        </div>
+            <p class="px-1"></p>
+
+        {% for i in range(range_songs|int) %}
+        {% set index1 = 3*i %}
+        {% set index2 = 3*i + 1 %}
+        {% set index3 = 3*i + 2 %}
+        {% set song1 = songs[index1] %}
+        {% set song2 = songs[index2] %}
+        {% set song3 = songs[index3] %}
 
         <div class="row pl-5 pr-5">
             <div class="col-sm">
 
-                <div class="card border-0 bg-transparent w-25">
+                {% if 10 > index1 %}
+
+                <div class="card border-0 bg-transparent">
                     <div class="card-body rounded" style="background-color: rgb(14, 48, 56)">
-                        <a href="/artists_songs/?artist={{ song.author }}" class="text-white-50">
-                            <h5 class="card-text" style="color:  rgb(255, 255, 255);">{{ song.author }}</h5>
+                        <a href="/artists_songs/?artist={{ song1.author }}" class="text-white-50">
+                            <h5 class="card-text" style="color:  rgb(255, 255, 255);">{{ song1.author }}</h5>
                         </a>
                     </div>
                 </div>
-                <p class="px-2"></p>
-            </div>
-        </div>
-        {% endfor %}
 
+                {% endif %}
+
+                <p class="px-1"></p>
+            </div>
+            <div class="col-sm">
+
+                {% if 10 > index2 %}
+
+                <div class="card border-0 bg-transparent">
+                    <div class="card-body rounded" style="background-color: rgb(14, 48, 56)">
+                        <a href="/artists_songs/?artist={{ song2.author }}" class="text-white-50">
+                            <h5 class="card-text" style="color:  rgb(255, 255, 255);">{{ song2.author }}</h5>
+                        </a>
+                    </div>
+                </div>
+
+                {% endif %}
+
+                <p class="px-1"></p>
+            </div>
+
+            <div class="col-sm">
+
+                {% if 10 > index3 %}
+
+                <div class="card border-0 bg-transparent">
+                    <div class="card-body rounded" style="background-color: rgb(14, 48, 56)">
+                        <a href="/artists_songs/?artist={{ song3.author }}" class="text-white-50">
+                            <h5 class="card-text" style="color:  rgb(255, 255, 255);">{{ song3.author }}</h5>
+                        </a>
+                    </div>
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+
+        </div>
+
+
+        {% endfor %}
     </div>
 </div>
 

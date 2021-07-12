@@ -1,41 +1,40 @@
-formatted_song = []
+def details_formatter(lines):
+    formatted_song = []
+    for line in lines:
+        if '{' in line:
+            split_line = line.split(':')
+            formatted_song.append(split_line[-1])
+        else:
+            pass
 
-def chord_line(line):
-    result = []    
+    return ''' 
+    <p>&nbsp;</p>
+    '''.join(formatted_song)
 
-    print_on = False
-    for c in line:
-        if c == '[':
-            result.append("<b>")
-            print_on = True
-        if print_on:
-            result.append(c)
-        else:        
-            result.append("&nbsp;")
-        if c == ']':
-            result.append("</b>")
-            print_on = False
-
-    return "".join(result).replace('[', '').replace(']', '')
-
-def non_chord_line(line):
+def song_preview(song):
     result = []
-    print_on = True
-    for c in line:
-        if c == '[':
-            print_on = False
-        if print_on:
-            result.append(c)        
-        if c == ']':
-            print_on = True
+    lines = song.split('\n')
+    for line in lines:
+        if '{' in line:
+            pass
+        elif '---' in line:
+            pass
+        elif '@' in line:
+            pass
+        elif '=' in line:
+            pass
+        else:
+            result.append(line)
+    result = ' / '.join(result).strip(' / ').replace('''    
+    ''', '')
+    return result[:250] + '...'
 
-    return "".join(result)
 
 def format(chord):
     result = []
     lines = chord.split("\n")
-    for line in lines:
-        result.append(f"<p>{chord_line(line)}</p>")
-        result.append(f"<p>{non_chord_line(line)}</p>")
-    print(result)
-    return " ".join(result)
+    result.append("<h5 style=\"color: rgb(73, 73, 73)\"><em>")
+    result.append(f"<p>{details_formatter(lines)}</p>")
+    result.append("</h5></em>")
+    return ''.join(result).replace('}','')
+

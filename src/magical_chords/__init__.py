@@ -20,6 +20,7 @@ class Chords(db.Model):
     author = db.Column(db.String(100), nullable=False)
     title = db.Column(db.String(300), nullable=False)
     song_content = db.Column(db.Text, nullable=False)
+    song_preview = db.Column(db.Text, nullable=False)
 
 
 # database creation
@@ -30,7 +31,7 @@ def init_db():
     num_songs = Chords.query.count()
     if num_songs == 0:          
         for author, title, song_content in song_importer.chopro_gen:
-            song = Chords(author=author.replace('.', ' '), title=title, song_content=song_content)
+            song = Chords(author=author.replace('.', ' '), title=title, song_content=song_content, song_preview=chord_formatter.song_preview(song_content))
             db.session.add(song)
             db.session.commit()
 
@@ -40,7 +41,7 @@ app.cli.add_command(init_db)
 # this regiters the function so shell can recognize it
 
 
-# chord formatter "import"
+# chord formatter
 @app.route('/format_chordpro/', methods=['POST'])
 def format_chordpro():
     chord = request.data.decode()

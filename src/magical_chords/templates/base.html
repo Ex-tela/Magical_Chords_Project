@@ -44,9 +44,9 @@
   <link rel="icon" href="/web/LOGO_Magical_chords.png">
 </head>
 
-<body style="background-color: rgb(255, 255, 255)">
+<body style="background-color: rgb(221, 221, 221)">
   <header class="p-3 text-dark w-100"
-    style="background-color: rgba(180, 180, 180, 0.808); position: fixed; top: 0; overflow: hidden; float: inline-start;">
+    style="box-shadow: 2px 2px 4px rgba(78, 78, 78, 0.596); background-color: rgb(38, 19, 39)">
     <div class="container-fluid">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-center">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
@@ -68,8 +68,8 @@
         <ul id="navigation" class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           {% for href, id, caption in navigation_bar %}
           <li>
-            <a href="{{ href|e }}" {% if id==active_page %} class="nav-link px-2 text-dark" {% else %}
-              class="nav-link px-2 text-secondary" {% endif%}>
+            <a href="{{ href|e }}" {% if id==active_page %} class="nav-link px-2 text-light" {% else %}
+              class="nav-link px-2 text-white-50" {% endif%}>
               {{ caption|e }}
             </a>
           </li>
@@ -79,7 +79,7 @@
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 w-25" action="/search/" method="GET">
           <input type="search" class="form-control form-control"
-            style="color: rgb(0, 0, 0); background-color: rgba(255, 255, 255, 0.726)" placeholder="Search..."
+            style="color: rgb(255, 255, 255); background-color: rgba(47, 25, 54, 0.404)" placeholder="Search..."
             id="search_text" name="search_text" value="{{ search_text }}">
           <!-- <button type="submit" class="btn bg-dark"><span class="fa fa-search">
             </span>Q</button> -->
@@ -93,7 +93,7 @@
     </div>
   </header>
 
-  <div style="margin-top: 2cm;">
+  <div>
     {% block content %}
   </div>
   {% endblock %}

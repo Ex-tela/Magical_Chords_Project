@@ -13,5 +13,5 @@ def scan_chopro_files():
  
 
 chopro_gen = scan_chopro_files()
-# for artist, title, contents in chopro_gen:
+# for artist, title, contents, song_preview in chopro_gen:
 #     print(f"{artist.replace('.', ' ')}")
